@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #111;
+}
+
+.template-container {
+  max-width: 480px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.template-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.template-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.template-header p {
+  font-size: 13px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* PREVIEW */
+.preview-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.frame {
+  width: 280px;
+  background: #111;
+  padding: 14px;
+  border-radius: 16px;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.frame-header,
+.frame-footer {
+  text-align: center;
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.frame-photos {
+  display: grid;
+  gap: 10px;
+}
+
+.frame-trio .frame-photos {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.frame-polaroid {
+  background: #fff;
+  color: #000;
+}
+
+.frame-postcard {
+  background: #1f2937;
+}
+
+.photo-slot {
+  background: #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTROLS */
+.template-controls {
+  padding: 20px;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.control-group label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.control-options {
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 13px;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.control-btn.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.next-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+}
+/* --- PERBAIKAN WARNA (LINGKARAN) --- */
+.text-style {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.color-wrapper {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fontColor {
+  position: absolute;
+  opacity: 0; /* Sembunyikan input asli yang kaku */
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.color-preview-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background-color: #ffffff; /* Default putih */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+/* Penyesuaian input number agar rapi */
+#fontSize {
+  width: 60px;
+  text-align: center;
+}
+
+
+.frame-photos.layout-4photo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

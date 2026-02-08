@@ -1,0 +1,163 @@
+/* ======================= css/style.css ======================= */
+{
+opacity: .7;
+}
+
+
+.photos {
+display: grid;
+gap: 8px;
+}
+
+
+.slot {
+background: #e5e7eb;
+border-radius: 10px;
+overflow: hidden;
+}
+
+
+.slot img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+
+/* TEMPLATE VARIANT */
+.frame.trio .photos { grid-template-rows: repeat(3, 1fr); }
+.frame.polaroid { width: 280px; padding-bottom: 30px; }
+.frame.postcard { width: 360px; }
+.frame.cute {
+background: #fff7ed;
+border: 3px dashed #fb7185;
+}
+
+
+.controls {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+
+.controls video {
+width: 100%;
+border-radius: 14px;
+}
+
+
+.controls button, .controls input {
+padding: 10px;
+border-radius: 10px;
+border: none;
+font-weight: 600;
+}
+
+
+.controls button {
+background: #22c55e;
+color: white;
+}
+
+
+.controls #download {
+background: #3b82f6;
+}
+/* =====================
+   FRAME COLOR SYSTEM
+===================== */
+
+/* FRAME BASE (support color & gradient) */
+.frame {
+  transition: background 0.35s ease, box-shadow 0.3s ease;
+}
+
+/* COLOR GRID (reuse for editor) */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.color-item {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,.15);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.color-item:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+/* GRADIENT PREVIEW */
+.color-item.gradient {
+  border-radius: 8px;
+}
+
+/* FAVORITE */
+.color-item.favorite {
+  position: relative;
+}
+
+.color-item.favorite::after {
+  content: "★";
+  position: absolute;
+  font-size: 9px;
+  bottom: -6px;
+  right: -6px;
+  background: #111;
+  color: #fff;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PRESET EO */
+.preset-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.preset-grid button {
+  padding: 8px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.preset-grid button:hover {
+  background: #e2e8f0;
+}
+
+/* CUSTOM COLOR */
+.custom-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.custom-picker input[type="color"] {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+}
+
+.custom-picker input[type="text"] {
+  width: 90px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}

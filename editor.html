@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Booth Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="editor-container">
+
+  <!-- FRAME PREVIEW -->
+  <section class="frame-preview">
+    <div id="photoFrame" class="photo-frame">
+      <span class="watermark">© HyFal DEV</span>
+    </div>
+  </section>
+
+  <!-- CONTROL PANEL -->
+  <section class="control-panel">
+
+    <h3>Warna Frame</h3>
+
+    <!-- SOLID COLORS -->
+    <div class="panel">
+      <h4>Solid Color</h4>
+      <div class="color-grid" id="solidColors"></div>
+    </div>
+
+    <!-- GRADIENT -->
+    <div class="panel">
+      <h4>Gradient Frame</h4>
+      <div class="color-grid" id="gradientColors"></div>
+    </div>
+
+    <!-- PRESET EO -->
+    <div class="panel">
+      <h4>Preset EO</h4>
+      <div class="preset-grid">
+        <button onclick="applyPreset('wedding')">Wedding</button>
+        <button onclick="applyPreset('birthday')">Birthday</button>
+        <button onclick="applyPreset('corporate')">Corporate</button>
+        <button onclick="applyPreset('school')">School</button>
+      </div>
+    </div>
+
+    <!-- FAVORITE -->
+    <div class="panel">
+      <h4>Favorite</h4>
+      <div class="color-grid" id="favoriteColors"></div>
+    </div>
+
+    <!-- CUSTOM PICKER -->
+    <div class="panel">
+      <h4>Custom Color</h4>
+      <div class="custom-picker">
+        <input type="color" id="customColor">
+        <input type="text" id="hexInput" placeholder="#FFFFFF">
+        <button onclick="applyCustomColor()">
+          <i class="bi bi-check-lg"></i>
+        </button>
+        <button onclick="saveFavorite()">
+          <i class="bi bi-heart"></i>
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

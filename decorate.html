@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Booth Decorate</title>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/decorate.css">
+</head>
+<body>
+
+<main class="app">
+
+  <!-- PREVIEW -->
+  <section class="preview">
+    <div id="frame" class="frame">
+
+      <!-- HEADER DARI TEMPLATE -->
+      <div class="frame-header"></div>
+
+      <!-- FOTO DARI TEMPLATE (DIISI JS) -->
+
+      <!-- FOOTER DARI TEMPLATE -->
+      <div class="frame-footer"></div>
+
+      <!-- WATERMARK -->
+      <div class="watermark"></div>
+
+    </div>
+  </section>
+
+  <!-- CONTROLS (TETAP) -->
+  <section class="controls">
+
+    <div class="block">
+      <label>Theme</label>
+      <div class="row">
+        <button class="theme-btn" data-theme="cute">Cute</button>
+        <button class="theme-btn" data-theme="elegant">Elegant</button>
+        <button class="theme-btn" data-theme="dark">Dark</button>
+      </div>
+    </div>
+
+   <div class="block">
+  <label>Warna Frame</label>
+  <div class="row">
+    <div class="color-wrapper">
+      <input type="color" id="color1" value="#111827">
+      <div class="color-wheel-icon"></div>
+    </div>
+  </div>
+</div>
+
+<div class="block">
+  <label>Gradient Frame</label>
+  <div class="row">
+    <div class="color-wrapper">
+      <input type="color" id="color2" value="#6b7280">
+      <div class="color-wheel-icon"></div>
+    </div>
+    <button id="applyGradient">
+      <i class="bi bi-brush"></i> Apply
+    </button>
+  </div>
+</div>
+
+    <div class="block">
+      <label>Preset EO</label>
+      <div class="row">
+        <button class="preset" data-c1="#ec4899" data-c2="#fde68a">Wedding</button>
+        <button class="preset" data-c1="#2563eb" data-c2="#22c55e">Corporate</button>
+        <button class="preset" data-c1="#111827" data-c2="#374151">Formal</button>
+      </div>
+    </div>
+
+    <div class="block">
+  <label>Stiker</label>
+  <div class="sticker-container">
+    <div class="sticker-bar">
+      <div class="sticker-item"><img src="assets/stickers/1.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/2.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/3.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/4.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/5.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/6.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/7.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/8.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/9.jpg"></div>
+      <div class="sticker-item"><img src="assets/stickers/10.jpg"></div>
+      
+      <label class="sticker-item upload-btn">
+        <i class="bi bi-plus-lg"></i>
+        <input type="file" hidden id="uploadSticker">
+      </label>
+    </div>
+  </div>
+</div>
+
+<button id="openModalBtn" class="primary-btn">
+  <i class="bi bi-check2-circle"></i> Selesai & Simpan
+</button>
+
+<div id="downloadModal" class="modal">
+  <div class="modal-content">
+    <h3>Simpan Karya Anda</h3>
+    <p>Beri nama untuk foto booth Anda:</p>
+    <div class="input-group">
+      <input type="text" id="fileNameInput" placeholder="Contoh: HyFal_fotobooth">
+      <span class="extension">.png</span>
+    </div>
+    <div class="modal-actions">
+      <button id="closeModal" class="secondary-btn">Batal</button>
+      <button id="confirmDownload" class="download-btn">
+        <i class="bi bi-download"></i> Download Sekarang
+      </button>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="js/decorate.js"></script>
+</body>
+</html>

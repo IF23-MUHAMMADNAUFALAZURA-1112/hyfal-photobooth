@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capture Photo</title>
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+
+  <link rel="stylesheet" href="css/capture.css" />
+</head>
+<body>
+
+  <main class="capture-container">
+
+    <!-- TOP BAR -->
+    <header class="capture-header">
+      <span id="progressText">Foto 1 dari 3</span>
+    </header>
+
+    <!-- CAMERA -->
+    <section class="camera-section">
+      <video id="video" autoplay playsinline></video>
+
+      <!-- COUNTDOWN -->
+      <div id="countdown" class="countdown hidden">3</div>
+
+      <!-- FLASH -->
+      <div id="flash" class="flash hidden"></div>
+    </section>
+
+    <!-- ACTION -->
+    <footer class="capture-footer">
+      <button id="startCaptureBtn" class="capture-btn">
+        <i class="bi bi-camera-fill"></i>
+        Mulai Foto
+      </button>
+    </footer>
+
+  </main>
+
+  <canvas id="canvas" hidden></canvas>
+
+  <script src="js/capture.js"></script>
+</body>
+</html>

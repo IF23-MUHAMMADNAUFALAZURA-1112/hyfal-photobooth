@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #fde2e4,
+    #f8edeb,
+    #ffffff
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setup-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.setup-card {
+  max-width: 520px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.step-indicator {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.option-section {
+  margin-bottom: 30px;
+}
+
+.option-section h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.option-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: #f9fafb;
+  transition: all 0.15s ease;
+}
+
+.option-card i {
+  font-size: 22px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.option-card span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.option-card.active {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.option-card:hover {
+  transform: translateY(-2px);
+}
+
+.continue-btn {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #111827;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+/* Container Utama untuk menampung foto-foto */
+.photo-output-container {
+    padding: 20px;
+    margin: auto;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+/* --- FORMAT 1: Trio Strip (Vertikal seperti gambar kamu) --- */
+.layout-trio {
+    background: #111827; /* Hitam gelap sesuai preview */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px 15px;
+    width: 260px;
+}
+.layout-trio img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* --- FORMAT 2: 4 Photo (Grid 2x2) --- */
+.layout-4photo {
+    background: #111827;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Membuat 2 kolom */
+    gap: 10px;
+    padding: 20px;
+    width: 450px;
+}
+.layout-4photo img {
+    width: 100%;
+    aspect-ratio: 1/1; /* Kotak sempurna */
+    object-fit: cover;
+}
+
+/* --- FORMAT 3: Polaroid (Frame Putih) --- */
+.layout-polaroid {
+    background: #ffffff;
+    padding: 15px 15px 60px 15px; /* Padding bawah lebih besar untuk efek kertas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    color: #333;
+}
+.layout-polaroid img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
