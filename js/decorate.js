@@ -81,7 +81,7 @@ function addSticker(src) {
     img.src = src;
     img.className = "sticker";
     img.style.width = "100px";
-    img.style.pointerEvents = "none"; // Klik tembus ke wrap
+    img.style.pointerEvents = "none"; 
 
     const rm = document.createElement("div");
     rm.className = "remove-sticker";
@@ -93,7 +93,6 @@ function addSticker(src) {
         wrap.remove();
     };
 
-    // FITUR RESIZE HP: Ketuk 2x untuk perbesar
     let lastTap = 0;
     wrap.addEventListener('touchend', (e) => {
         let currentTime = new Date().getTime();
@@ -116,7 +115,6 @@ function addSticker(src) {
 function makeDraggable(el) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
-    // Support Mouse & Touch
     el.onmousedown = dragStart;
     el.addEventListener('touchstart', dragStart, { passive: false });
 
@@ -138,7 +136,7 @@ function makeDraggable(el) {
 
     function dragMove(e) {
         const event = e.type === 'touchmove' ? e.touches[0] : e;
-        if (e.type === 'touchmove') e.preventDefault(); // Stop scrolling layar
+        if (e.type === 'touchmove') e.preventDefault(); 
 
         pos1 = pos3 - event.clientX;
         pos2 = pos4 - event.clientY;
@@ -167,7 +165,7 @@ function makeResizable(container, img) {
 }
 
 /* =========================
-    4. MODAL & DOWNLOAD (PNG)
+    4. MODAL & DOWNLOAD (ANTI-RESIZING)
 ========================= */
 document.querySelectorAll(".sticker-item img").forEach(i => {
     i.onclick = () => addSticker(i.src);
@@ -199,6 +197,8 @@ window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
 
 confirmBtn.onclick = () => {
     const name = fileNameInput.value.trim() || `PhotoBooth-${Date.now()}`;
+    
+    // UI Feedback
     confirmBtn.disabled = true;
     confirmBtn.style.backgroundColor = "#1e40af"; 
     confirmBtn.style.color = "#ffffff"; 
@@ -207,16 +207,27 @@ confirmBtn.onclick = () => {
     const removers = document.querySelectorAll(".remove-sticker");
     removers.forEach(b => b.style.opacity = "0");
 
+    // Perbaikan: Ambil dimensi asli untuk mencegah penyusutan di HP
+    const originalWidth = frame.offsetWidth;
+    const originalHeight = frame.offsetHeight;
+
     html2canvas(frame, {
         useCORS: true,
-        scale: 3,
-        backgroundColor: null 
+        scale: 3, // High Quality
+        backgroundColor: null,
+        width: originalWidth,
+        height: originalHeight,
+        scrollX: 0,
+        scrollY: -window.scrollY, // Menghilangkan offset scroll
+        windowWidth: document.documentElement.offsetWidth,
+        windowHeight: document.documentElement.offsetHeight
     }).then(canvas => {
         const a = document.createElement("a");
         a.download = name + ".png";
         a.href = canvas.toDataURL("image/png");
         a.click();
 
+        // Reset UI
         removers.forEach(b => b.style.opacity = "1");
         modal.style.display = "none";
         confirmBtn.disabled = false;
